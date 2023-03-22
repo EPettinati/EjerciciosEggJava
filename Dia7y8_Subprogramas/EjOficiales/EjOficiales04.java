@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clase7y8;
+package xxa;
 
 import java.util.Scanner;
 
@@ -11,15 +11,15 @@ import java.util.Scanner;
  *
  * @author Epett
  */
-public class EjOficiales04 {
+public class xxs {
 
     /* Crea una aplicación que nos pida un número por teclado y con una función se lo pasamos por parámetro para que nos indique si es o no un número primo, 
     debe devolver true si es primo, sino false.
 Un número primo es aquel que solo puede dividirse entre 1 y sí mismo. Por ejemplo: 25 no es primo, ya que 25 es divisible entre 5, sin embargo, 17 si es primo.
 
         	¿Qué son los números primos?
-Básicamente, un número primo es un número natural que tiene solo dos divisores o factores: 1 y el mismo número. 
-    Es decir, es primo aquel número que se puede dividir por uno y por el mismo número.
+Básicamente, un número primo es un número natural que tiene solo dos divisores o factores: 
+    1 y el mismo número. Es decir, es primo aquel número que se puede dividir por uno y por el mismo número.
 El primer número primo es 2, y hay 25 números primos entre 1 y 100, ellos son: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89 y 97.
      */
     /**
@@ -29,7 +29,8 @@ El primer número primo es 2, y hay 25 números primos entre 1 y 100, ellos son:
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingresar un numero");
         int num1 = sc.nextInt();
-         if (retorno(num1)) {
+        boolean resultado = retorno(num1);
+        if (resultado) {
             System.out.println(num1 + " es un número primo");
         } else {
             System.out.println(num1 + " no es un número primo");
@@ -37,13 +38,16 @@ El primer número primo es 2, y hay 25 números primos entre 1 y 100, ellos son:
     }
 
     public static boolean retorno(int num1) {
-        boolean resultado;
-        if (num1 % 2 == 0 && num1 != 2) {
-            resultado = false;
+        boolean result;
+        if (num1 <= 1) {
+            return false;
         } else {
-            resultado = true;
+            for (int i = 2; i <= num1 / 2; i++) {
+                if (num1 % i == 0) {
+                    return false;
+                }
+            }
+            return true;
         }
-        System.out.println(resultado);
-        return resultado;
     }
 }
