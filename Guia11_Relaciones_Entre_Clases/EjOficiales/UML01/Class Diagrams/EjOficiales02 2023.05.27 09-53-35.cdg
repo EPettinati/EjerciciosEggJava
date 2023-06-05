@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="EjOficiales02">
+  <ClassDiagramComponents>
+    <Class name="EjOficiales02" package="ejoficiales02" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Jugador" package="ejoficiales02.entidades" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="mojado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="isMojado" returnType="boolean" visibility="public"/>
+        <Method name="setMojado" returnType="void" visibility="public">
+          <Argument type="boolean" name="mojado"/>
+        </Method>
+        <Method name="disparo" returnType="boolean" visibility="public">
+          <Argument type="RevolverAgua" name="r"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RevolverAgua" package="ejoficiales02.entidades" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="posActual" type="int" visibility="private"/>
+        <Field name="posTambor" type="int" visibility="private"/>
+        <Field name="r" type="Random" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="llenarRevolver" returnType="void" visibility="public"/>
+        <Method name="mojar" returnType="boolean" visibility="public"/>
+        <Method name="siguienteChorro" returnType="void" visibility="public"/>
+        <Method name="getPosActual" returnType="int" visibility="public"/>
+        <Method name="setPosActual" returnType="void" visibility="public">
+          <Argument type="int" name="posActual"/>
+        </Method>
+        <Method name="getPosTambor" returnType="int" visibility="public"/>
+        <Method name="setPosTambor" returnType="void" visibility="public">
+          <Argument type="int" name="posTambor"/>
+        </Method>
+        <Method name="getR" returnType="Random" visibility="public"/>
+        <Method name="setR" returnType="void" visibility="public">
+          <Argument type="Random" name="r"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Juego" package="ejoficiales02.Servicio" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="jugadores" type="ArrayList&lt;Jugador&gt;" visibility="private"/>
+        <Field name="revolver" type="RevolverAgua" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="llenarJuego" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Jugador&gt;" name="jugadores"/>
+        </Method>
+        <Method name="Ronda" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="jugadores" source="ejoficiales02.Servicio.Juego" target="ejoficiales02.entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Jugador&gt;"/>
+    <UseRelation source="ejoficiales02.Servicio.Juego" target="ejoficiales02.entidades.Jugador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="revolver" source="ejoficiales02.Servicio.Juego" target="ejoficiales02.entidades.RevolverAgua" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ejoficiales02.entidades.Jugador" target="ejoficiales02.entidades.RevolverAgua" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
